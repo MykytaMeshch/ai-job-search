@@ -42,6 +42,17 @@ Thumbs.db
 # Memory files (Claude Code user-specific)
 .claude/projects/
 
+# OpenClaw local workspace state
+.openclaw/
+MEMORY.md
+memory/
+USER.md
+SOUL.md
+TOOLS.md
+HEARTBEAT.md
+IDENTITY.md
+BOOTSTRAP.md
+
 # Skills lock (auto-generated)
 skills-lock.json
 

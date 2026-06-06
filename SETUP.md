@@ -4,6 +4,10 @@ Step-by-step instructions for getting the AI Job Search framework running.
 
 ## 1. Prerequisites
 
+### OpenClaw (optional, for OpenClaw-native flows)
+
+If you want to run this repo through OpenClaw instead of Claude slash commands, install OpenClaw and open this repository as a workspace. The repo now includes `AGENTS.md` plus OpenClaw-native `skills/` wrappers for setup, application drafting, job search, and upskilling.
+
 ### Claude Code
 
 Install Claude Code (Anthropic's CLI for Claude):
@@ -57,7 +61,7 @@ for tool in jobbank-search jobdanmark-search jobindex-search jobnet-search; do
 done
 ```
 
-## 4. Run the setup interview
+## 4. Run onboarding in Claude Code or OpenClaw
 
 Start Claude Code in the repository:
 
@@ -71,12 +75,25 @@ Then run the onboarding:
 /setup
 ```
 
-Claude will offer two paths:
+Claude will offer three paths:
 
-- **Path A (recommended):** Share your existing CV (mention the file with `@` or paste the text). Claude extracts your information and asks follow-up questions for anything missing.
-- **Path B:** Answer structured interview questions section by section.
+- **Path A (recommended when `documents/` is populated):** Read your `documents/` folder and build the profile from your real source material.
+- **Path B:** Share a single CV (mention the file with `@` or paste the text). Claude extracts your information and asks follow-up questions for anything missing.
+- **Path C:** Answer structured interview questions section by section.
 
 Both paths produce the same result: fully populated profile files.
+
+### OpenClaw option
+
+If you are using OpenClaw instead, open the repo as a workspace and say one of these:
+
+```text
+Set up my profile from the documents folder.
+Import my CV and ask follow-up questions.
+Update my search queries.
+```
+
+OpenClaw uses the repo's `AGENTS.md` and `skills/` directory, but it still writes to the same underlying profile files.
 
 ### What gets populated
 
@@ -136,6 +153,12 @@ Claude will:
 3. Draft a tailored CV and cover letter
 4. Have a reviewer agent critique the drafts
 5. Revise and present the final output
+
+In OpenClaw, the equivalent request is natural language, for example:
+
+```text
+Evaluate this posting and, if it is a strong fit, draft the CV and cover letter.
+```
 
 ## 7. Compile your documents
 
